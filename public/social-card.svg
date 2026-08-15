@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">MindHack Sec</title>
+  <desc id="description">Cibersegurança sem complicação</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111F"/><stop offset="1" stop-color="#111218"/></linearGradient>
+    <radialGradient id="glow" cx="72%" cy="30%" r="60%"><stop stop-color="#633326" stop-opacity=".72"/><stop offset="1" stop-color="#07111F" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity=".55"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g opacity=".32" fill="none" stroke="#F5B942" stroke-width="2">
+    <path d="M780 88h106l38 38h154M736 164h88l42 42h202M792 535h92l46-46h176M724 454h124l34-34h236"/>
+    <circle cx="780" cy="88" r="6" fill="#F5B942"/><circle cx="1078" cy="126" r="6" fill="#F5B942"/><circle cx="736" cy="164" r="6" fill="#F5B942"/><circle cx="1068" cy="206" r="6" fill="#F5B942"/><circle cx="792" cy="535" r="6" fill="#F5B942"/><circle cx="1112" cy="489" r="6" fill="#F5B942"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(900 145)">
+    <path d="M46 18h114l40 52-18 210-79 70-78-70L6 70z" fill="#0A1018" stroke="#F5B942" stroke-width="6"/>
+    <path d="M40 96h42v30H52v34h30v32H40zm124 0h-42v30h30v34h-30v32h42z" fill="#F5B942" opacity=".85"/>
+    <path d="M103 58v78m-30-50h60m-76 92h92m-74 36h56" stroke="#F5B942" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="72" cy="154" r="12" fill="#9F302D"/><circle cx="134" cy="154" r="12" fill="#F5B942"/>
+  </g>
+  <g fill="#F5B942"><rect x="112" y="137" width="48" height="4" rx="2"/><rect x="112" y="454" width="176" height="4" rx="2"/></g>
+  <text x="112" y="237" fill="#F5B942" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="6">MINDHACK SEC</text>
+  <text x="112" y="326" fill="#F0F1F3" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">Conhecimento é a melhor</text>
+  <text x="112" y="400" fill="#F5B942" font-family="Arial, Helvetica, sans-serif" font-size="60" font-weight="700">camada de defesa.</text>
+  <text x="112" y="503" fill="#A9AFB9" font-family="Arial, Helvetica, sans-serif" font-size="28">Cibersegurança sem complicação.</text>
+</svg>

@@ -1,0 +1,16 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const dicas = await getCollection('dicas');
+  return dicas.map((dica) => ({ params: { slug: dica.id }, props: { dica } }));
+}
+
+const { dica } = Astro.props;
+const { Content } = await render(dica);
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
+---
+<BaseLayout title={dica.data.title} description={dica.data.description}>
+  <article class="prose content-article"><p class="eyebrow">Dica · {dica.data.level}</p><h1>{dica.data.title}</h1><p class="lead">{dica.data.description}</p><p class="article-meta"><time datetime={dica.data.publishedAt.toISOString()}>{dateFormatter.format(dica.data.publishedAt)}</time> · {dica.data.readingTime} min de leitura</p><Content /><aside class="article-source"><p class="eyebrow">Fonte para se aprofundar</p><a href={dica.data.source.url} target="_blank" rel="noopener noreferrer">{dica.data.source.label} <span aria-hidden="true">↗</span></a></aside><p><a class="card-link" href="/dicas">← Todas as dicas</a></p></article>
+</BaseLayout>

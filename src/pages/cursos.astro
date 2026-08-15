@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const cursos = await getCollection('cursos');
+---
+<BaseLayout title="Cursos" description="Trilhas abertas de aprendizagem em cibersegurança.">
+  <section class="page-heading"><p class="eyebrow">Aprendizado aberto</p><h1>Aprenda no seu ritmo.</h1><p class="lead">As playlists e vídeos gratuitos do MindHack Sec serão organizados aqui por nível e assunto. Enquanto a primeira trilha é preparada, acompanhe o canal oficial.</p><p class="actions"><a class="button" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">Visitar o canal no YouTube <span aria-hidden="true">↗</span></a></p></section>
+  <section class="article-grid">{cursos.length > 0 ? <div class="card-grid">{cursos.map((curso) => <article class="card"><span class="tag">{curso.data.status}</span><h2>{curso.data.title}</h2><p>{curso.data.description}</p><a class="card-link" href={curso.data.youtubeUrl ?? `/cursos/${curso.id}`} target={curso.data.youtubeUrl ? '_blank' : undefined} rel={curso.data.youtubeUrl ? 'noopener noreferrer' : undefined}>{curso.data.youtubeUrl ? 'Assistir no YouTube ↗' : 'Ver trilha →'}</a></article>)}</div> : <p class="notice">As primeiras trilhas estão em preparação. Quando os vídeos forem publicados, elas aparecerão aqui.</p>}</section>
+</BaseLayout>

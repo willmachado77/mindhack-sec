@@ -1,0 +1,12 @@
+{
+  "name": "MindHack Sec",
+  "short_name": "MindHack Sec",
+  "description": "Educação em cibersegurança para escolhas digitais mais seguras.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#07111F",
+  "theme_color": "#07111F",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

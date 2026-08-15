@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const dicas = (await getCollection('dicas')).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+<BaseLayout title="Dicas de segurança" description="Dicas práticas para uma vida digital mais segura.">
+  <section class="page-heading"><p class="eyebrow">Segurança aplicável</p><h1>Boas escolhas digitais começam aqui.</h1><p class="lead">Conteúdos práticos para reduzir riscos sem depender de termos complicados.</p></section>
+  <section class="article-grid"><div class="card-grid">{dicas.map((dica) => <article class="card"><p class="article-meta">{dica.data.level} · {dica.data.readingTime} min de leitura</p><h2>{dica.data.title}</h2><p>{dica.data.description}</p><p class="tag-list">{dica.data.tags.map((tag) => <span class="tag">{tag}</span>)}</p><a class="card-link" href={`/dicas/${dica.id}`}>Ler dica →</a></article>)}</div></section>
+</BaseLayout>

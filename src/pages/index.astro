@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const dicas = (await getCollection('dicas')).slice(0, 3);
+---
+<BaseLayout title="Cibersegurança para pessoas reais" description="O MindHack Sec transforma cibersegurança em escolhas digitais mais seguras.">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Cibersegurança sem complicação</p>
+      <h1>Conhecimento é a melhor <em>camada de defesa.</em></h1>
+      <p class="lead">O MindHack Sec traduz o universo da segurança da informação em conteúdo claro, prático e responsável — para você navegar com mais segurança.</p>
+      <div class="actions"><a class="button" href="/dicas">Explorar dicas</a><a class="button button-secondary" href="/sobre">Conheça o projeto</a></div>
+    </div>
+    <div class="terminal" aria-label="Ilustração decorativa de terminal">
+      <div class="terminal-top"><i></i><i></i><i></i></div>
+      <p><span>mindhack@sec</span>:~$ aprender --com-segurança</p>
+      <p>→ Senhas fortes</p><p>→ Privacidade digital</p><p>→ Pensamento crítico</p>
+      <p><span>status:</span> mais seguro a cada escolha <b class="cursor"></b></p>
+    </div>
+  </section>
+
+  <section class="section section-alternate">
+    <div class="section-inner"><div class="section-header"><div><p class="eyebrow">Comece por aqui</p><h2>Dicas para o seu dia a dia digital</h2></div><a href="/dicas">Todas as dicas →</a></div>
+      <div class="card-grid">{dicas.map((dica) => <article class="card"><span class="tag">{dica.data.level}</span><h3>{dica.data.title}</h3><p>{dica.data.description}</p><a class="card-link" href={`/dicas/${dica.id}`}>Ler dica →</a></article>)}</div>
+    </div>
+  </section>
+
+  <section id="youtube" class="section"><div class="youtube-panel"><div><p class="eyebrow">Canal oficial</p><h2>Entre no submundo dos dados.</h2><p>O MindHack Sec está no YouTube. Acompanhe o canal para receber os primeiros vídeos e as próximas trilhas de aprendizagem.</p></div><a class="button button-secondary" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">Conhecer o canal <span aria-hidden="true">↗</span></a></div></section>
+</BaseLayout>

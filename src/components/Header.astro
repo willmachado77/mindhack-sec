@@ -1,0 +1,25 @@
+---
+const { currentPath = '/' } = Astro.props;
+const navigation = [
+  { href: '/', label: 'Início' },
+  { href: '/noticias', label: 'Notícias' },
+  { href: '/dicas', label: 'Dicas' },
+  { href: '/cursos', label: 'Cursos' },
+  { href: '/sobre', label: 'Sobre' }
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="MindHack Sec — início">
+    <span class="brand-mark" aria-hidden="true">M</span>
+    <span>MindHack <b>Sec</b></span>
+  </a>
+  <nav aria-label="Navegação principal">
+    <ul>
+      {navigation.map((item) => (
+        <li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+  <a class="button button-small" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+</header>
