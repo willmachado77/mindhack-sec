@@ -11,7 +11,7 @@ Apresentar o canal, publicar notícias com fontes verificáveis, oferecer dicas 
 - [Astro](https://astro.build/) para gerar páginas estáticas rápidas.
 - TypeScript para tornar o código mais previsível.
 - CSS moderno próprio, sem biblioteca visual pesada.
-- Cloudflare Pages planejado para hospedagem com HTTPS.
+- Cloudflare Workers para publicação dos arquivos estáticos com HTTPS.
 
 ## Executar localmente
 
@@ -40,7 +40,7 @@ docs/             decisões, segurança e diário de bordo
 
 ## Publicação
 
-O plano de publicação com GitHub, Cloudflare Pages e o domínio `mindhacksec.tech` está em [docs/publicacao-cloudflare-pages.md](docs/publicacao-cloudflare-pages.md). Não inclua senhas, tokens ou chaves de API no repositório.
+O procedimento de publicação com GitHub, Cloudflare Workers e o domínio `mindhacksec.tech` está em [docs/publicacao-cloudflare-workers.md](docs/publicacao-cloudflare-workers.md). Não inclua senhas, tokens ou chaves de API no repositório.
 
 ## Licença e créditos
 

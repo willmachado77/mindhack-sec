@@ -10,7 +10,7 @@
 
 ## Cabeçalhos de publicação
 
-O arquivo `public/_headers` prepara a implantação no Cloudflare Pages com as seguintes proteções:
+O arquivo `public/_headers` prepara a implantação dos ativos estáticos no Cloudflare Workers com as seguintes proteções:
 
 - Política de segurança de conteúdo restritiva para um site estático, sem scripts, conexões ou objetos de terceiros.
 - Bloqueio de enquadramento por outros sites, redução de informações no `Referer` e prevenção de detecção incorreta de tipo de arquivo.
