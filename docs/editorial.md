@@ -31,6 +31,20 @@ Publicar conteúdo educativo em linguagem clara, com foco em ações práticas e
 3. Revisar clareza, links e termos técnicos.
 4. Executar `npm run build` antes de publicar.
 
+## Integração com o NecroPaper
+
+O NecroPaper é uma fonte de pautas curadas, não um mecanismo de publicação.
+Uma pauta só pode gerar rascunho quando tiver status `aprovar`, título e resumo
+revisados, fonte primária validada e justificativa editorial registrada.
+
+O rascunho é gerado fora de `src/content`, em `rascunhos/necropaper/`, e não é
+versionado. A pessoa responsável continua escolhendo a data de publicação,
+tags, texto final, imagem (quando aplicável) e se o arquivo será copiado para a
+coleção de notícias. A validação com `npm run build`, o commit e o deploy são
+etapas deliberadamente manuais.
+
+O contrato e o gerador local estão descritos em `docs/integracao-necropaper.md`.
+
 ## Regra editorial
 
 Se uma informação não puder ser confirmada, ela não deve ser apresentada como fato.

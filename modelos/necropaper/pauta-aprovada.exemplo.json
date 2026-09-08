@@ -1,0 +1,22 @@
+{
+  "editorial_status": "aprovar",
+  "collected_link_id": 0,
+  "reviewed_title": "[REVISAR] Título factual aprovado",
+  "reviewed_summary": "[REVISAR] Resumo factual revisado para o leitor.",
+  "publishedAt": "AAAA-MM-DD",
+  "tags": ["[REVISAR] Tema principal"],
+  "primary_source": {
+    "label": "[REVISAR] Fonte primária ou institucional",
+    "url": "https://endereco-da-fonte.example"
+  },
+  "original_source": {
+    "label": "[OPCIONAL] Fonte que levou à pauta",
+    "url": "https://endereco-da-fonte.example"
+  },
+  "secondary_source": {
+    "label": "[OPCIONAL] Fonte independente complementar",
+    "url": "https://endereco-da-fonte.example"
+  },
+  "decision_reason": "[REVISAR] Por que a pauta foi aprovada e quais limites precisam aparecer.",
+  "editor_notes": "[OPCIONAL] Instruções de redação que já foram revistas."
+}

@@ -5,3 +5,7 @@ dist/
 .env.*
 !.env.example
 *.log
+
+# Saída local da ponte NecroPaper. Rascunhos não entram em src/content nem
+# devem ser versionados antes da revisão editorial explícita.
+rascunhos/necropaper/

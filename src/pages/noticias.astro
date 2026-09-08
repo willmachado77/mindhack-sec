@@ -5,8 +5,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const noticias = (await getCollection('noticias')).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
 );
+// Datas YYYY-MM-DD representam calendário editorial, não horário UTC.
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' });
 ---
 <BaseLayout title="Notícias" description="Notícias de cibersegurança do MindHack Sec.">
   <section class="page-heading"><p class="eyebrow">Acompanhe com contexto</p><h1>Notícias de cibersegurança.</h1><p class="lead">Fatos, contexto e fontes originais para entender o que realmente merece atenção.</p></section>
-  <section class="article-grid">{noticias.length > 0 ? <div class="card-grid">{noticias.map((noticia) => <article class="card"><p class="article-meta">{noticia.data.publishedAt.toLocaleDateString('pt-BR')}</p><h2>{noticia.data.title}</h2><p>{noticia.data.description}</p><p class="tag-list">{noticia.data.tags.map((tag) => <span class="tag">{tag}</span>)}</p><a class="card-link" href={`/noticias/${noticia.id}`}>Ler análise →</a></article>)}</div> : <p class="notice">A primeira notícia será publicada após curadoria e revisão da fonte primária. Enquanto isso, explore as dicas práticas do MindHack Sec.</p>}</section>
+  <section class="article-grid">{noticias.length > 0 ? <div class="card-grid">{noticias.map((noticia) => <article class="card"><p class="article-meta">{dateFormatter.format(noticia.data.publishedAt)}</p><h2>{noticia.data.title}</h2><p>{noticia.data.description}</p><p class="tag-list">{noticia.data.tags.map((tag) => <span class="tag">{tag}</span>)}</p><a class="card-link" href={`/noticias/${noticia.id}`}>Ler análise →</a></article>)}</div> : <p class="notice">A primeira notícia será publicada após curadoria e revisão da fonte primária. Enquanto isso, explore as dicas práticas do MindHack Sec.</p>}</section>
 </BaseLayout>

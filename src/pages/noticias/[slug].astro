@@ -9,7 +9,9 @@ export async function getStaticPaths() {
 
 const { noticia } = Astro.props;
 const { Content } = await render(noticia);
+// Datas YYYY-MM-DD representam calendário editorial, não horário UTC.
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' });
 ---
 <BaseLayout title={noticia.data.title} description={noticia.data.description}>
-  <article class="prose content-article"><p class="eyebrow">Notícia</p><h1>{noticia.data.title}</h1><p class="lead">{noticia.data.description}</p><p class="article-meta">Publicado em {noticia.data.publishedAt.toLocaleDateString('pt-BR')}{noticia.data.updatedAt ? ` · Atualizado em ${noticia.data.updatedAt.toLocaleDateString('pt-BR')}` : ''}</p><Content />{noticia.data.source && <aside class="article-source"><p class="eyebrow">Fonte primária</p><a href={noticia.data.source.url} target="_blank" rel="noopener noreferrer">{noticia.data.source.label} <span aria-hidden="true">↗</span></a></aside>}<p><a class="card-link" href="/noticias">← Todas as notícias</a></p></article>
+  <article class="prose content-article"><p class="eyebrow">Notícia</p><h1>{noticia.data.title}</h1><p class="lead">{noticia.data.description}</p><p class="article-meta">Publicado em {dateFormatter.format(noticia.data.publishedAt)}{noticia.data.updatedAt ? ` · Atualizado em ${dateFormatter.format(noticia.data.updatedAt)}` : ''}</p><Content />{noticia.data.source && <aside class="article-source"><p class="eyebrow">Fonte primária</p><a href={noticia.data.source.url} target="_blank" rel="noopener noreferrer">{noticia.data.source.label} <span aria-hidden="true">↗</span></a></aside>}<p><a class="card-link" href="/noticias">← Todas as notícias</a></p></article>
 </BaseLayout>
