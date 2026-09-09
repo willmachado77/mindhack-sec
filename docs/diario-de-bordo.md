@@ -68,3 +68,43 @@ Publicar o MVP do MindHack Sec em seu domínio oficial, com versionamento no Git
 - Documentar a rotina de atualização do site.
 - Validar sitemap, robots.txt e cabeçalhos de segurança em produção.
 - Definir uma licença para o código.
+
+## 2026-09-08 — Primeira publicação editorial via NecroPaper
+
+### Objetivo
+
+Publicar a primeira notícia factual do MindHack Sec a partir da esteira local do NecroPaper, preservando revisão humana, rastreabilidade de fontes e controle manual de publicação.
+
+### Implementação
+
+- Integrado o NecroPaper ao repositório do MindHack Sec como gerador de rascunhos locais, sem acesso a credenciais de deploy e sem escrita automática em `src/content`.
+- Adicionados contrato editorial, modelo de entrada de pauta aprovada e gerador local de rascunhos Markdown.
+- Mantida a regra de que somente pautas com status editorial `aprovar` podem gerar rascunhos.
+- Revisada e aprovada a pauta de ID `921`.
+- Publicada a notícia `Falhas no SharePoint Server permitem cadeia de ataque com execução remota de código`.
+- Preservada a distinção entre a exploração ativa confirmada da CVE-2026-55040 e a cadeia técnica que inclui a CVE-2026-63520.
+- Corrigida globalmente a exibição de datas editoriais para tratar valores `AAAA-MM-DD` como datas de calendário, evitando recuo de um dia por fuso horário.
+- Criada uma nova chave SSH local para restabelecer a autenticação com o GitHub, sem expor chaves privadas ou passphrases.
+
+### Verificação
+
+- `npm run build` concluído sem erros, avisos ou hints.
+- A rota `/noticias/falhas-sharepoint-cadeia-rce/` foi gerada localmente.
+- O commit `d632b85` foi enviado à branch `main`.
+- A publicação automática na Cloudflare foi confirmada pela resposta pública da URL da notícia.
+- A notícia foi revisada visualmente no site publicado.
+
+### Decisões e aprendizados
+
+- A aprovação editorial permite a redação, mas não substitui a decisão humana de publicar.
+- O fluxo de rascunho fora de `src/content` reduz o risco de publicar conteúdo incompleto por engano.
+- Datas editoriais sem horário precisam de formatação explícita para não sofrerem alteração visual por fuso horário.
+- A passphrase de uma chave SSH é diferente da senha de login do GitHub.
+- O `git add .` deve continuar evitado; cada commit deve conter apenas arquivos revisados e relacionados à mesma mudança.
+
+### Próximas etapas
+
+- Avaliar uma seção de últimas notícias na página inicial, com grade no desktop e navegação horizontal acessível no mobile.
+- Corrigir e aprimorar a navegação mobile após diagnóstico visual.
+- Encaminhar a pauta aprovada de ID `9171` pela mesma esteira editorial.
+- Manter os backups locais até a estabilização dos próximos ajustes de design.
