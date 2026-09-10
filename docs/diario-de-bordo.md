@@ -108,3 +108,42 @@ Publicar a primeira notícia factual do MindHack Sec a partir da esteira local d
 - Corrigir e aprimorar a navegação mobile após diagnóstico visual.
 - Encaminhar a pauta aprovada de ID `9171` pela mesma esteira editorial.
 - Manter os backups locais até a estabilização dos próximos ajustes de design.
+
+## 2026-09-10 — Segunda publicação editorial via NecroPaper
+
+### Objetivo
+
+Publicar uma notícia revisada sobre a CVE-2026-86218 no N-able N-central, mantendo a revisão humana, a rastreabilidade das fontes e os limites de confirmação técnica.
+
+### Implementação
+
+* Recuperada no NecroPaper a pauta aprovada de ID `9171`.
+* Gerado um rascunho local a partir da pauta estruturada, fora de `src/content`.
+* Revisado o título para evitar afirmar como fato absoluto uma condição descrita de modo divergente nas comunicações públicas.
+* Publicada a notícia `N-able alerta para zero-day no N-central; HF4 corrige RCE pré-autenticada`.
+* Mantida a distinção entre a CVE-2026-86218, as CVEs 2026-86206 e CVE-2026-86207 e as vulnerabilidades tratadas em atualizações anteriores.
+* Mantida a ressalva de que a página de incidente da N-able relata exploração observada, enquanto notas de atualização citadas pela Huntress registravam ausência de confirmação de exploração em ambientes de produção.
+* Incluídas orientações proporcionais: aplicação do Hotfix 4 em instalações locais, revisão de contas e registros e restrição de acesso ao console.
+
+### Verificação
+
+* Confirmado que o conteúdo publicável não continha marcadores de rascunho.
+* `npm run build` foi concluído com 0 erros, 0 avisos e 0 dicas.
+* A rota `/noticias/n-able-ncentral-hf4-rce/` foi gerada localmente.
+* Revisado o diff entre o rascunho local e o arquivo publicável; a única diferença foi a remoção do comentário interno de rascunho.
+* Criado o commit `34b8161` com somente a nova notícia.
+* O commit foi enviado à branch `main`.
+* A publicação automática da Cloudflare foi confirmada pela resposta pública da URL da notícia.
+
+### Decisões e aprendizados
+
+* O título de uma notícia de segurança deve refletir também os limites da evidência disponível, mesmo quando a pauta já está aprovada.
+* Rascunho local, conteúdo publicável e commit devem permanecer etapas distintas e verificáveis.
+* Arquivos não rastreados não aparecem no `git diff` comum; a revisão pode ser feita com `git diff --no-index` antes do `git add`.
+* Alterações locais não relacionadas, como o `README.md`, devem continuar fora dos commits editoriais.
+
+### Próximas etapas
+
+* Encaminhar a pauta aprovada de ID `6667` pela mesma esteira editorial.
+* Avaliar as próximas pautas aprovadas conforme atualidade, impacto e confirmação de fontes.
+* Preparar a documentação pública e sanitizada do projeto NecroPaper em repositório próprio, sem credenciais, dados locais ou conteúdo operacional sensível.
