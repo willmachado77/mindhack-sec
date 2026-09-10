@@ -14,12 +14,23 @@ const navigation = [
     <span class="brand-mark" aria-hidden="true">M</span>
     <span>MindHack <b>Sec</b></span>
   </a>
-  <nav aria-label="Navegação principal">
+  <nav class="desktop-navigation" aria-label="Navegação principal">
     <ul>
       {navigation.map((item) => (
         <li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
       ))}
     </ul>
   </nav>
-  <a class="button button-small" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+  <a class="button button-small desktop-youtube" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+  <details class="mobile-navigation">
+    <summary><span class="menu-icon" aria-hidden="true"></span> Menu</summary>
+    <nav aria-label="Navegação principal em dispositivos móveis">
+      <ul>
+        {navigation.map((item) => (
+          <li><a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+        <li><a class="mobile-youtube" href="https://www.youtube.com/@MindHackSec" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+  </details>
 </header>

@@ -3,6 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const dicas = (await getCollection('dicas')).slice(0, 3);
+const noticias = (await getCollection('noticias'))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
+// Datas YYYY-MM-DD representam calendário editorial, não horário local.
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' });
 ---
 <BaseLayout title="Cibersegurança para pessoas reais" description="O MindHack Sec transforma cibersegurança em escolhas digitais mais seguras.">
   <section class="hero">
@@ -19,6 +24,30 @@ const dicas = (await getCollection('dicas')).slice(0, 3);
       <p><span>status:</span> mais seguro a cada escolha <b class="cursor"></b></p>
     </div>
   </section>
+
+  {noticias.length > 0 && (
+    <section class="section latest-news" aria-labelledby="latest-news-title">
+      <div class="section-inner">
+        <div class="section-header">
+          <div><p class="eyebrow">Informação com contexto</p><h2 id="latest-news-title">Últimas notícias</h2></div>
+          <a href="/noticias">Todas as notícias →</a>
+        </div>
+        <div class="news-grid" role="region" aria-label="Notícias recentes" tabindex="0">
+          {noticias.map((noticia) => (
+            <article class="card news-card">
+              <p class="article-meta">{dateFormatter.format(noticia.data.publishedAt)}</p>
+              <h3>{noticia.data.title}</h3>
+              <p>{noticia.data.description}</p>
+              <div class="tag-list" aria-label="Assuntos da notícia">
+                {noticia.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+              <a class="card-link" href={`/noticias/${noticia.id}`}>Ler notícia →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section section-alternate">
     <div class="section-inner"><div class="section-header"><div><p class="eyebrow">Comece por aqui</p><h2>Dicas para o seu dia a dia digital</h2></div><a href="/dicas">Todas as dicas →</a></div>
