@@ -1,9 +1,10 @@
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 const sourceSchema = z.object({
   label: z.string(),
-  url: z.string().url()
+  url: z.url()
 });
 
 const dicas = defineCollection({
@@ -38,7 +39,7 @@ const cursos = defineCollection({
     description: z.string(),
     level: z.enum(['Iniciante', 'Intermediário', 'Avançado']),
     status: z.enum(['Planejado', 'Publicado']),
-    youtubeUrl: z.string().url().optional(),
+    youtubeUrl: z.url().optional(),
     tags: z.array(z.string()).min(1)
   })
 });
