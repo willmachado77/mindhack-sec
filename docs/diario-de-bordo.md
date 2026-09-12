@@ -147,3 +147,44 @@ Publicar uma notícia revisada sobre a CVE-2026-86218 no N-able N-central, mante
 * Encaminhar a pauta aprovada de ID `6667` pela mesma esteira editorial.
 * Avaliar as próximas pautas aprovadas conforme atualidade, impacto e confirmação de fontes.
 * Preparar a documentação pública e sanitizada do projeto NecroPaper em repositório próprio, sem credenciais, dados locais ou conteúdo operacional sensível.
+
+## 2026-09-10 e 2026-09-12 — Terceira e quarta publicações editoriais via NecroPaper
+
+### Objetivo
+
+Publicar duas notícias factuais revisadas a partir de pautas aprovadas no NecroPaper, preservando a revisão humana, a rastreabilidade de fontes, os limites de confirmação técnica e o controle manual de publicação.
+
+### Implementação
+
+* Publicada a notícia `Falhas zero-day no SonicWall SMA1000 são exploradas; atualização urgente corrige cadeia potencial de RCE`, originada da pauta de ID `6667`.
+* Mantida a distinção entre a confirmação de exploração ativa das CVEs `2026-83548` e `2026-83549` e a possibilidade técnica de encadeamento para execução remota de comandos.
+* Informado que o escopo declarado pelo fornecedor abrange os modelos SMA1000 6210, 7210 e 8200v.
+* Publicada a notícia `Google corrigiu zero-day explorado no Chrome; mantenha o navegador atualizado`, originada da pauta de ID `8133`.
+* A pauta do Chrome foi reaberta antes da redação para atualizar o enquadramento temporal: versões divulgadas em 3 de setembro foram tratadas como contexto datado, enquanto a orientação atual é verificar a atualização mais recente oferecida pelo navegador.
+* Mantida a confirmação do Google de exploração ativa da CVE-2026-85046, sem atribuição a grupo, campanha ou método não confirmado publicamente.
+* Em ambas as publicações, os rascunhos foram gerados fora de `src/content`, revisados antes da cópia manual e publicados somente após validação técnica.
+
+### Verificação
+
+* `npm run build` foi concluído sem erros, avisos ou dicas antes de cada publicação.
+* As rotas `/noticias/sonicwall-sma1000-rce/` e `/noticias/chrome-zero-day-v8-atualizacao/` foram geradas localmente.
+* O conteúdo publicável foi verificado para impedir a inclusão de marcadores internos de rascunho.
+* Durante a preparação da notícia do Chrome, uma duplicação acidental de conteúdo foi identificada antes do estágio Git, preservada em backup local e removida do arquivo publicável.
+* Criados os commits `aa6e85a` para a notícia sobre SonicWall e `72234e8` para a notícia sobre Chrome.
+* Ambos os commits foram enviados manualmente à branch `main`.
+* As duas publicações foram confirmadas nas respectivas URLs públicas após a implantação automática da Cloudflare.
+
+### Decisões e aprendizados
+
+* A confirmação de exploração ativa não autoriza presumir que toda cadeia técnica possível foi usada em incidentes observados.
+* Recomendações de atualização devem evitar fixar números de versão quando a informação pode envelhecer rapidamente; a orientação deve permanecer válida para o leitor no momento do acesso.
+* A separação entre rascunho local, conteúdo publicável, estágio Git e publicação permite detectar e corrigir erros de edição antes do deploy.
+* Registros documentais podem agrupar publicações relacionadas, desde que cada decisão, verificação e limite editorial permaneça rastreável.
+* Alterações locais não relacionadas, como o `README.md`, continuam fora dos commits editoriais e documentais.
+
+### Próximas etapas
+
+* Avaliar novas pautas aprovadas de acordo com atualidade, impacto e confirmação das fontes.
+* Manter a revisão humana como condição obrigatória para qualquer nova publicação.
+* Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
+
