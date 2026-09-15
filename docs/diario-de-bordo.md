@@ -188,3 +188,45 @@ Publicar duas notícias factuais revisadas a partir de pautas aprovadas no Necro
 * Manter a revisão humana como condição obrigatória para qualquer nova publicação.
 * Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
 
+## 2026-09-12 e 2026-09-13 — Quinta, sexta e sétima publicações editoriais via NecroPaper
+
+### Objetivo
+
+Publicar três notícias factuais revisadas a partir de pautas aprovadas no NecroPaper, mantendo revisão humana, rastreabilidade de fontes, limites explícitos de confirmação técnica e publicação manual controlada.
+
+### Implementação
+
+* Publicada a notícia `Adobe corrige zero-day explorado no Magento e Commerce; hotfix é prioritário`, originada da pauta de ID `10331`.
+* Registrada a confirmação da Adobe sobre exploração ativa da CVE-2026-75650 e a disponibilização de hotfix prioritário.
+* Mantida a distinção entre os fatos confirmados pela Adobe e relatos independentes sobre backdoors e possíveis indicadores de comprometimento.
+* Publicada a notícia `Microsoft corrige dois zero-days do Windows explorados; atualização exige prioridade`, originada da pauta de ID `10532`.
+* Mantido o foco nas CVEs `2026-81963` e `2026-85880`, ambas relacionadas à elevação local de privilégios.
+* Evitado o uso de uma contagem única para as correções de setembro, pois fontes públicas apresentaram números divergentes.
+* Publicada a notícia `SAP corrige falha crítica no kernel; CVE-2026-44756 exige atualização urgente`, originada da pauta de ID `10371`.
+* Diferenciada a correção publicada pela SAP e o risco técnico de execução remota de código descrito em alertas independentes da ausência de confirmação pública de exploração ativa.
+* Em todas as publicações, os rascunhos foram gerados fora de `src/content`, revisados antes da cópia manual e enviados ao site somente após validação técnica.
+
+### Verificação
+
+* `npm run build` foi concluído sem erros, avisos ou dicas antes de cada publicação.
+* As rotas `/noticias/adobe-magento-zero-day-hotfix/`, `/noticias/windows-zero-days-atualizacao-setembro/` e `/noticias/sap-overpass-cve-2026-44756/` foram geradas localmente.
+* Os conteúdos publicáveis foram verificados para impedir a inclusão de marcadores internos de rascunho.
+* Foram revisadas as diferenças entre os rascunhos locais e os arquivos publicáveis; em cada caso, a remoção do comentário interno foi a alteração necessária.
+* Criados os commits `93aa4a7`, `7e7a5e5` e `c92b7f6`, cada um contendo somente sua respectiva notícia.
+* Os três commits foram enviados manualmente à branch `main`.
+* As três publicações foram confirmadas nas respectivas URLs públicas após a implantação automática da Cloudflare.
+
+### Decisões e aprendizados
+
+* A confirmação de exploração ativa pelo fornecedor deve permanecer separada de relatos independentes sobre técnicas, backdoors ou indicadores de comprometimento.
+* A severidade máxima e o potencial técnico de uma falha não autorizam afirmar exploração ativa sem confirmação pública correspondente.
+* Para atualizações amplas, uma notícia pode priorizar os CVEs relevantes e as ações do leitor, sem reproduzir contagens divergentes de falhas.
+* A separação entre rascunho local, conteúdo publicável, estágio Git e publicação continua permitindo identificar problemas antes do deploy.
+* Alterações locais não relacionadas, como o `README.md`, permanecem fora dos commits editoriais e documentais.
+
+### Próximas etapas
+
+* Avaliar novas pautas aprovadas conforme atualidade, impacto e confirmação das fontes.
+* Manter a revisão humana como condição obrigatória para qualquer nova publicação.
+* Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
+
