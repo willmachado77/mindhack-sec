@@ -230,3 +230,44 @@ Publicar três notícias factuais revisadas a partir de pautas aprovadas no Necr
 * Manter a revisão humana como condição obrigatória para qualquer nova publicação.
 * Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
 
+## 2026-09-15 — Oitava e nona publicações editoriais via NecroPaper
+
+### Objetivo
+
+Publicar duas notícias revisadas a partir de pautas aprovadas no NecroPaper, mantendo a revisão humana, a rastreabilidade de fontes, os limites de confirmação técnica e o controle manual de publicação.
+
+### Implementação
+
+* Publicada a notícia `Campanha BigBear mira Microsoft 365 e contorna MFA por roubo de sessão`, originada da pauta de ID `9531`.
+* Atribuídos à pesquisa da CloudSEK, divulgada pelo BleepingComputer, o nome da operação, os números e o alcance relatado da campanha.
+* Mantida a distinção entre essa pesquisa e a orientação geral da Microsoft sobre roubo de tokens e sessões; não foi afirmado que a Microsoft confirmou a campanha BigBear específica.
+* Publicada a notícia `CRA da União Europeia inicia reporte obrigatório de vulnerabilidades exploradas`, originada da pauta de ID `10612`.
+* Utilizado o texto oficial do Regulamento (UE) 2024/2847 como fonte primária para explicar o início da aplicação do Artigo 14 em 11 de setembro de 2026.
+* Registrados os prazos de alerta inicial em até 24 horas, notificação complementar em até 72 horas e relatórios finais conforme o tipo de ocorrência.
+* Preservada a distinção entre o início das obrigações de reporte do Artigo 14 e a aplicação geral do CRA em 11 de dezembro de 2027.
+* Em ambas as publicações, os rascunhos foram gerados fora de `src/content`, revisados antes da cópia manual e publicados somente após validação técnica.
+
+### Verificação
+
+* `npm run build` foi concluído sem erros, avisos ou dicas antes de cada publicação.
+* As rotas `/noticias/bigbear-microsoft-365-mfa-sessao/` e `/noticias/cra-ue-reporte-vulnerabilidades/` foram geradas localmente.
+* Os conteúdos publicáveis foram verificados para impedir a inclusão de marcadores internos de rascunho.
+* Foram revisadas as diferenças entre os rascunhos locais e os arquivos publicáveis; em ambos os casos, a remoção do comentário interno foi a única alteração necessária.
+* Criados os commits `acbe47c` para a notícia sobre BigBear e `2e99fbe` para a notícia sobre o CRA.
+* Ambos os commits foram enviados manualmente à branch `main`.
+* As duas publicações foram confirmadas nas respectivas URLs públicas após a implantação automática da Cloudflare.
+
+### Decisões e aprendizados
+
+* Relatos de campanhas e pesquisas de terceiros devem identificar claramente sua origem, sem transformar dados divulgados por pesquisadores em confirmação independente.
+* MFA continua essencial, mas o roubo de sessões autenticadas exige controles complementares, monitoramento e métodos resistentes a phishing.
+* Matérias sobre normas e regulamentos precisam separar fatos verificáveis, prazos de aplicação e avaliação jurídica individual.
+* A existência de uma obrigação de reporte não significa que toda organização fora da União Europeia esteja automaticamente sujeita a ela.
+* O fluxo de rascunho local, revisão humana, validação técnica e publicação manual permanece adequado para conteúdo editorial de segurança e governança.
+
+### Próximas etapas
+
+* Avaliar novas pautas aprovadas conforme atualidade, impacto e confirmação das fontes.
+* Manter a revisão humana como condição obrigatória para qualquer nova publicação.
+* Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
+
