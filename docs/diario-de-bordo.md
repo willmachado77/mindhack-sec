@@ -271,3 +271,43 @@ Publicar duas notícias revisadas a partir de pautas aprovadas no NecroPaper, ma
 * Manter a revisão humana como condição obrigatória para qualquer nova publicação.
 * Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
 
+## 2026-09-15 — Décima e décima primeira publicações editoriais via NecroPaper
+
+### Objetivo
+
+Publicar duas notícias factuais revisadas, preservando revisão humana, rastreabilidade de fontes, limites explícitos de confirmação técnica e controle manual de publicação.
+
+### Implementação
+
+* Publicada uma notícia sobre a classificação, pela OpenAI, do modelo Astra no nível de capacidade crítica de cibersegurança previsto em seu *Preparedness Framework*.
+* A matéria atribuiu à própria OpenAI a avaliação de que, com ferramentas e acessos adequados, o modelo pode identificar vulnerabilidades ainda desconhecidas e desenvolver formas de exploração em sistemas bem protegidos.
+* Mantida a distinção entre a avaliação e as salvaguardas declaradas pela empresa e uma confirmação independente dessas capacidades.
+* Publicada a notícia `Falhas exploradas no MikroTik RouterOS exigem atualização urgente`, originada da pauta de ID `9332`.
+* Registrada a confirmação do CERT Polska sobre exploração ativa de uma cadeia envolvendo as CVEs `2026-67276` e `2026-86060` quando a administração SSH está acessível pela internet.
+* Atribuídas à MikroTik as versões corrigidas `6.49.21`, `7.23.4` e `7.24.2`.
+* Mantida a ressalva de que a correção reduz a exposição, mas não confirma nem descarta comprometimento prévio de equipamentos específicos.
+
+### Verificação
+
+* `npm run build` foi concluído sem erros, avisos ou dicas.
+* As rotas `/noticias/openai-astra-ciberseguranca-critica/` e `/noticias/mikrotik-routeros-falhas-exploradas/` foram geradas localmente.
+* Os conteúdos publicáveis foram verificados para impedir a inclusão de marcadores internos de rascunho.
+* Na matéria sobre MikroTik, a diferença entre rascunho e conteúdo publicável foi apenas a remoção do comentário interno.
+* Criados os commits `3c7a5cd` e `a325beb`, cada um contendo somente sua respectiva notícia.
+* Ambos os commits foram enviados manualmente à branch `main`.
+* As duas publicações foram confirmadas nas URLs públicas após a implantação automática da Cloudflare.
+* O `README.md`, que continha alteração local não relacionada, permaneceu fora dos commits editoriais.
+
+### Decisões e aprendizados
+
+* Declarações de capacidade e classificações de risco feitas por fornecedores devem ser atribuídas explicitamente à fonte, sem apresentá-las como validação independente.
+* A confirmação de exploração ativa em equipamentos de rede não autoriza presumir que todos os dispositivos da fabricante estejam expostos ou comprometidos.
+* Atualização de software, redução de superfície exposta e investigação de sinais técnicos são medidas complementares, com finalidades distintas.
+* A separação entre rascunho local, conteúdo publicável, revisão técnica, commit específico e confirmação pública continua reduzindo o risco de erros editoriais e operacionais.
+
+### Próximas etapas
+
+* Avaliar novas pautas aprovadas conforme atualidade, impacto e confirmação das fontes.
+* Manter a revisão humana como condição obrigatória para qualquer nova publicação.
+* Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
+
