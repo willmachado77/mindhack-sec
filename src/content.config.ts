@@ -20,12 +20,19 @@ const dicas = defineCollection({
   })
 });
 
+const editorialTimeSchema = z.string().regex(
+  /^([01]\d|2[0-3]):[0-5]\d$/,
+  'Use o formato HH:MM, por exemplo 19:30.'
+);
+
 const noticias = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/noticias' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     publishedAt: z.coerce.date(),
+    publishedTime: editorialTimeSchema.optional(),
+    sourcePublishedAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
     tags: z.array(z.string()).min(1),
     source: sourceSchema.optional()

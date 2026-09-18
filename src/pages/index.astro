@@ -3,12 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const dicas = (await getCollection('dicas')).slice(0, 3);
-const noticias = (await getCollection('noticias'))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+
+const todasNoticias = await getCollection('noticias');
+type Noticia = (typeof todasNoticias)[number];
+
+const publicationTimestamp = (noticia: Noticia) => {
+  const [hours, minutes] = noticia.data.publishedTime?.split(':').map(Number) ?? [0, 0];
+
+  return noticia.data.publishedAt.valueOf() + ((hours * 60 + minutes) * 60_000);
+};
+
+const noticias = todasNoticias
+  .sort((a, b) => publicationTimestamp(b) - publicationTimestamp(a))
   .slice(0, 3);
+
 // Datas YYYY-MM-DD representam calendário editorial, não horário local.
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' });
+
+const formatPublication = (noticia: Noticia) =>
+  `${dateFormatter.format(noticia.data.publishedAt)}${noticia.data.publishedTime ? ` · ${noticia.data.publishedTime} BRT` : ''}`;
 ---
+
 <BaseLayout title="Cibersegurança para pessoas reais" description="O MindHack Sec transforma cibersegurança em escolhas digitais mais seguras.">
   <section class="hero">
     <div>
@@ -35,7 +50,7 @@ const dateFormatter = new Intl.DateTimeFormat('pt-BR', { timeZone: 'UTC' });
         <div class="news-grid" role="region" aria-label="Notícias recentes" tabindex="0">
           {noticias.map((noticia) => (
             <article class="card news-card">
-              <p class="article-meta">{dateFormatter.format(noticia.data.publishedAt)}</p>
+              <p class="article-meta">{formatPublication(noticia)}</p>
               <h3>{noticia.data.title}</h3>
               <p>{noticia.data.description}</p>
               <div class="tag-list" aria-label="Assuntos da notícia">
