@@ -311,3 +311,76 @@ Publicar duas notícias factuais revisadas, preservando revisão humana, rastrea
 * Manter a revisão humana como condição obrigatória para qualquer nova publicação.
 * Preparar, em etapa própria, documentação pública e sanitizada do projeto NecroPaper em repositório independente.
 
+## 2026-09-17 a 2026-09-21 — Décima segunda a décima sexta publicações editoriais via NecroPaper
+
+### Objetivo
+
+Consolidar cinco publicações factuais revisadas, mantendo a separação entre pauta aprovada, rascunho local, conteúdo publicável, validação técnica, commit isolado e confirmação pública após a implantação automática.
+
+### Implementação
+
+* Publicada a notícia `Falha explorada em plugin de WooCommerce exige atualização imediata`, originada da pauta de ID `302`.
+
+  * Delimitado que a CVE-2026-27540 afeta o complemento WooCommerce Wholesale Lead Capture, e não o WooCommerce principal.
+  * Registrada a confirmação de exploração ativa pela Wordfence e a orientação de atualização para a versão corrigida ou posterior.
+* Publicada a notícia `Falha crítica explorada no Cisco Secure FMC exige atualização imediata`, originada da pauta de ID `251`.
+
+  * Mantida a atribuição à Cisco sobre a exploração ativa da CVE-2026-20079, seu impacto e as atualizações disponibilizadas.
+  * Evitado sugerir solução alternativa quando o fornecedor informou não haver contorno.
+* Publicada a notícia `Microsoft confirma falha de login em domínio após atualizações do Windows 11`, originada da pauta de ID `352`.
+
+  * Atribuído à Microsoft o problema relacionado ao Machine Identity Isolation em cenários específicos e a mitigação oficial disponível.
+  * Preservada a distinção entre dispositivos efetivamente afetados e dispositivos apenas atualizados.
+* Publicada a notícia `Alerta conjunto expõe spyware usado contra dissidentes, ativistas e jornalistas`, originada da pauta de ID `353`.
+
+  * Atribuído ao alerta conjunto do NCSC, FBI e AIVD o uso do CHOSEN BRICK por atores cibernéticos iranianos contra pessoas consideradas ameaça ao regime.
+  * Evitada a identificação de vítimas individuais ou a generalização de que todas as pessoas de uma nacionalidade constituam alvos.
+* Publicada a notícia `Malware mira bancos brasileiros e instala extensões ocultas no Chrome e Edge`, originada da pauta de ID `350`.
+
+  * Atribuídos à Elastic Security Labs a descrição da operação KREMLIN, o direcionamento a usuários bancários brasileiros e a instalação de extensões maliciosas sem aprovação.
+  * O texto priorizou medidas defensivas e não reproduziu procedimentos operacionais do malware.
+
+### Verificação
+
+* `npm run build` foi concluído sem erros, avisos ou dicas antes de cada publicação.
+
+* As rotas públicas foram geradas localmente e confirmadas após a implantação automática da Cloudflare:
+
+  * `/noticias/woocommerce-wholesale-lead-capture-cve-2026-27540-atualizacao/`
+  * `/noticias/cisco-secure-fmc-cve-2026-20079-atualizacao/`
+  * `/noticias/windows-11-login-dominio-atualizacoes/`
+  * `/noticias/chosen-brick-espionagem-contra-dissidentes/`
+  * `/noticias/kremlin-extensoes-ocultas-bancos-brasileiros/`
+
+* Os conteúdos publicáveis foram verificados para impedir a inclusão de comentários internos de rascunho.
+
+* As diferenças entre rascunhos locais e arquivos publicáveis foram revisadas antes do estágio Git.
+
+* Criados commits isolados, cada um contendo somente sua notícia:
+
+  * `8c68c54` — WooCommerce Wholesale Lead Capture;
+  * `38fbaaa` — Cisco Secure FMC;
+  * `f9382ec` — Windows 11 e login em domínio;
+  * `330a634` — spyware CHOSEN BRICK;
+  * `7310f60` — malware KREMLIN no Brasil.
+
+* Todos os commits foram enviados manualmente à branch `main`.
+
+* A alteração local não relacionada em `README.md` permaneceu fora de todos os commits.
+
+### Decisões e aprendizados
+
+* A cadência de documentação passa a ser de um registro a cada três publicações; este registro consolida excepcionalmente cinco, pois a documentação anterior ficou pendente.
+* A aprovação editorial continua sendo condição para redigir, mas não substitui a revisão humana final nem a autorização explícita para commit e envio.
+* A existência de um alerta estatal sobre alvos internacionais não permite atribuir alvos individuais, nacionalidade obrigatória das vítimas ou motivação específica sem confirmação pública.
+* Em incidentes que envolvem malware bancário, a publicação deve explicar o risco e as medidas defensivas sem oferecer detalhes que facilitem abuso.
+* A validação de front matter, estrutura editorial, build e conteúdo preparado deve ocorrer antes do commit; problemas de formatação devem ser corrigidos antes de qualquer envio.
+* O uso de commits isolados e a preservação de alterações não relacionadas facilitam auditoria, reversão e rastreabilidade pública.
+
+### Próximas etapas
+
+* Retomar a avaliação das pautas aprovadas segundo atualidade, impacto e confirmação das fontes.
+* Manter revisão humana, validação técnica e autorização explícita para commit e envio.
+* Criar o próximo checkpoint documental depois de mais três publicações.
+
+
